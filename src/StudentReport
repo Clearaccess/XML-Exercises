@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reportStudent>
+    <profileStudent>
+
+        <fullname></fullname>
+
+        <city></city>
+
+        <e-mail></e-mail>
+
+        <datestart></datestart>
+
+        <subcontract></subcontract>
+
+    </profileStudent>
+
+    <profileprogram>
+
+        <name></name>
+
+        <author></author>
+
+        <datecreate></datecreate>
+
+        <listcourses></listcourses>
+
+    </profileprogram>
+
+    <profilecourse>
+
+        <name></name>
+
+        <author></author>
+
+        <datecreate></datecreate>
+
+        <listtasks></listtasks>
+
+    </profilecourse>
+
+    <profiletask>
+
+        <typetask></typetask>
+
+        <name></name>
+
+        <period></period>
+
+        <mark></mark>
+
+        <status></status>
+
+    </profiletask>
+
+    <listStudents>
+        ...
+    </listStudents>
+
+    <listPrograms>
+        ...
+    </listPrograms>
+
+    <listCourses>
+        ...
+    </listCourses>
+
+</reportStudent>

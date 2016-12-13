@@ -9,22 +9,26 @@
             <xs:sequence>
 
                 <xs:element name="A" type="r:A" maxOccurs="unbounded">
-                    <xs:keyref name="dummy" refer="r:pNumKey">
-                        <xs:selector xpath="part"/>
-                        <xs:field xpath="@ref-number"/>
-                    </xs:keyref>
-
-                    <xs:key name="pNumKey">
-                        <xs:selector xpath="r:B/r:part"/>
-                        <xs:field xpath="@key-number"/>
-                    </xs:key>
                 </xs:element>
-
                 <xs:element name="B" type="r:B"/>
             </xs:sequence>
 
-
         </xs:complexType>
+
+        <xs:keyref name="dummy" refer="r:pNumKey">
+            <xs:selector xpath="r:A/r:part"/>
+            <xs:field xpath="@ref-number"/>
+        </xs:keyref>
+
+        <xs:key name="pNumKey">
+            <xs:selector xpath="r:B/r:part"/>
+            <xs:field xpath="@key-number"/>
+        </xs:key>
+
+        <xs:unique name="dummy1">
+            <xs:selector xpath="r:A/r:part"/>
+            <xs:field xpath="@ref-number"/>
+        </xs:unique>
     </xs:element>
 
     <xs:complexType name="A">

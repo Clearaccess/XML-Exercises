@@ -3,7 +3,7 @@
        xmlns="file://testSchema.xsd"
        xsi:schemaLocation="file://testSchema.xsd testSchema.xsd">
     <A>
-        <part ref-number="1"/>
+        <part ref-number="0"/>
     </A>
 
     <B>

@@ -1,6 +1,6 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="file://schema.xsd"
-           xmlns:r="file://schema.xsd"
+           targetNamespace="file://Report.xsd"
+           xmlns:r="file://Report.xsd"
            elementFormDefault="qualified">
 
 

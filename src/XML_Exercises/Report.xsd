@@ -3,7 +3,6 @@
            xmlns:r="file://Report.xsd"
            elementFormDefault="qualified">
 
-
     <xs:simpleType name="stringType">
         <xs:restriction base="xs:string">
             <xs:minLength value="1"/>

@@ -2,6 +2,7 @@
 <report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xmlns="file://Report.xsd"
                xsi:schemaLocation="file://Report.xsd Report.xsd">
+
     <listTasks>
         <task>
             <theoryTask type="theory" name="Overview of Eclipse IDE" period="4"/>

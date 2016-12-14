@@ -154,7 +154,15 @@
 
         <xs:sequence>
 
-            <xs:element name="course" type="r:descriptionCourseType" maxOccurs="unbounded"/>
+            <xs:element name="listCourses" type="r:listCoursesType">
+
+                <!-- Unique description list programs-->
+                <xs:unique name="rule5">
+                    <xs:selector xpath="r:course"/>
+                    <xs:field xpath="@name"/>
+                </xs:unique>
+
+            </xs:element>
 
         </xs:sequence>
 
@@ -185,7 +193,16 @@
                 </xs:complexType>
             </xs:element>
 
-            <xs:element name="planCourse" type="r:listCoursesType"/>
+            <xs:element name="planCourse" type="r:listCoursesType">
+
+                <!-- Unique courses in listPlaneCourses of student-->
+                <xs:unique name="rule6">
+                    <xs:selector xpath="r:course"/>
+                    <xs:field xpath="@name"/>
+                    <xs:field xpath="@name"/>
+                </xs:unique>
+
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
 
@@ -239,11 +256,61 @@
             <xs:field xpath="@name"/>
         </xs:unique>
 
-        <!-- Unique description list programs-->
-        <xs:unique name="rule5">
-            <xs:selector xpath="r:listPrograms/r:program/r:course"/>
+        <!-- key and keyref for listCourses of programs-->
+        <xs:keyref name="rkey1" refer="r:key1">
+            <xs:selector xpath="r:listPrograms/r:program/r:listCourses/r:course"/>
             <xs:field xpath="@name"/>
-        </xs:unique>
+        </xs:keyref>
+
+        <xs:key name="key1">
+            <xs:selector xpath="r:listCourses/r:course"/>
+            <xs:field xpath="@name"/>
+        </xs:key>
+
+        <xs:keyref name="rkey2CourseName" refer="r:key2CourseName">
+            <xs:selector xpath="r:listStudents/r:student/r:descriptionProgramStudent/r:listCourses/r:course"/>
+            <xs:field xpath="@name"/>
+        </xs:keyref>
+
+        <xs:key name="key2CourseName">
+            <xs:selector xpath="r:listCourses/r:course"/>
+            <xs:field xpath="@name"/>
+        </xs:key>
+
+        <xs:keyref name="rkey3" refer="r:key3">
+            <xs:selector xpath="r:listStudents/r:student/r:allTaskStudents/r:task/r:theoryTask"/>
+            <xs:field xpath="@name"/>
+            <xs:field xpath="@period"/>
+        </xs:keyref>
+
+        <xs:keyref name="rkey4" refer="r:key4">
+            <xs:selector xpath="r:listStudents/r:student/r:allTaskStudents/r:task/r:practiceTask"/>
+            <xs:field xpath="@name"/>
+            <xs:field xpath="@period"/>
+        </xs:keyref>
+
+        <xs:key name="key3">
+            <xs:selector xpath="r:listTasks/r:task/r:theoryTask"/>
+            <xs:field xpath="@name"/>
+            <xs:field xpath="@period"/>
+        </xs:key>
+
+        <xs:key name="key4">
+            <xs:selector xpath="r:listTasks/r:task/r:practiceTask"/>
+            <xs:field xpath="@name"/>
+            <xs:field xpath="@period"/>
+        </xs:key>
+
+        <xs:keyref name="rkey5" refer="r:key5">
+            <xs:selector xpath="r:listStudents/r:student/r:planeCourse"/>
+            <xs:field xpath="@name"/>
+        </xs:keyref>
+
+        <xs:key name="key5">
+            <xs:selector xpath="r:listStudents/r:descriptionProgramStudent/r:listCourses/r:course"/>
+            <xs:field xpath="@name"/>
+        </xs:key>
+
     </xs:element>
     
 </xs:schema>

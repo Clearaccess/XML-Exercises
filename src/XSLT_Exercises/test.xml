@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="Authors.xsl"?>
+
+<test>
+    <author id="1">
+        123
+    </author>
+
+    <author id="2">
+        2
+    </author>
+
+    <author id="3">
+        3
+    </author>
+
+    <author id="4">
+        4
+    </author>
+
+    <author id="5">
+        5
+    </author>
+</test>
